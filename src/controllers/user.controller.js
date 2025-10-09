@@ -114,7 +114,8 @@ const registerUser = asyncHandler( async(req, res) => {
 //     // return res
 
     const {fullName, username, email, password}= req.body //this line is called destructuring, It extracts values directly from the req.body object (the data sent in the request).
-    console.log("email", email)
+    // console.log("email", email)
+    // console.log(req.body)
     
     // validation (beginner level)
 //  if (fullName === "") {
@@ -158,10 +159,19 @@ const registerUser = asyncHandler( async(req, res) => {
     const avatarLocalPath = req.files?.avatar[0]?.path;
     const coverImageLocalPath= req.files?.coverImage?.[0]?.path;
 
+    // let coverImageLocalPath;
+
+    // if (req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0) {
+    //     coverImageLocalPath = req.files.coverImage[0].path;
+
+        
+    // }
+
     if (!avatarLocalPath) {
         throw new ApiError(400, "Avatar file is required")
         
     }
+    console.log(req.files)
 
     //upload avatar on cloudinary 
     const avatar = await uploadOnCloudinary(avatarLocalPath)
