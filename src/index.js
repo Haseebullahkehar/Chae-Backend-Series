@@ -5,7 +5,7 @@ import connectDB from "./db/index.js";
 import { app } from "./app.js";
 
 dotenv.config({
-    path: './env'
+    path: './.env'
 })
 
 
@@ -13,7 +13,7 @@ dotenv.config({
 connectDB()
     .then(() => {
 
-        app.on("errror", (error) => {
+        app.on("error", (error) => {
             console.log("app failed listening:", error);
             throw error
         })

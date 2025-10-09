@@ -21,8 +21,12 @@ import userRouter from "./routes/user.routes.js";
 
 
 // routes declaration 
-app.use("/api/v1/users", userRouter);
+app.use("/api/v1/users", userRouter)
+
+//when hitting on ../users endpoint, it will redirect to user.router.js file and will execute the logic 
+
 
 // http://localhost:8000/api/v1/users/register (best practices)
 
 export { app }
+// export default app
